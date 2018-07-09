@@ -1,0 +1,25 @@
+If you want to access a secured endpoint, you can also use Micronaut's HTTP Client and supply the JWT token in the Authorization header.
+
+First create a `@Client` with a method `home` which accepts an `Authorization` HTTP Header.
+
+[source,java]
+.src/test/kotlin/example/micronaut/AppClient.kt
+----
+include::{sourceDir}/src/test/kotlin/example/micronaut/AppClient.kt[]
+----
+
+Create a test which uses the previous `@Client`
+
+[source,java]
+.src/test/kotlin/example/micronaut/DeclarativeHttpClientWithJwtSpec.kt
+----
+include::{sourceDir}/src/test/kotlin/example/micronaut/DeclarativeHttpClientWithJwtSpec.kt[]
+----
+
+<1> To run the application from a unit test you can use the http://docs.micronaut.io/api/io/micronaut/runtime/server/EmbeddedServer.html[EmbeddedServer] interface
+<2> Register a `RxClient` bean in the application context and point it to the embedded server URL. The `EmbeddedServer` interface provides the URL of the server under test which runs on a random port.
+<3> Retrieve `AppClient` bean from application context.
+<4> To login, do a POST request to `/login` with your credentials as a JSON payload in the body of the request.
+<5> Micronaut makes it easy to parse JSON into Java objects.
+<6> Use .body() to retrieve the parsed payload.
+<7> Supply the JWT to the HTTP `Authorization` header value to the `@Client` method.

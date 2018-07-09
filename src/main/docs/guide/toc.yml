@@ -1,0 +1,18 @@
+gettingStarted: 
+  title: Getting Started
+  requirements: What you will need
+  solution: Solution
+writingTheApp:
+  title: Writing the Application
+  dependency: Security Dependency
+  configuration: Configuration
+  authenticationProvider: Authentication Provider
+  controller: Controllers
+tests:
+  title: Tests
+  oauth: Token Refresh
+  jwt: Use Micronaut's HTTP Client and JWT
+testingTheApp:
+  title: Testing the Application
+runningTheApp:
+  title: Running the Application

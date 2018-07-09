@@ -1,0 +1,10 @@
+To keep this guide simple, create a naive `AuthenticationProvider` to simulate user's authentication.
+
+[source,java]
+.src/main/kotlin/example/micronaut/services/AuthenticationProviderUserPassword.kt
+----
+include::{sourceDir}/src/main/kotlin/example/micronaut/services/AuthenticationProviderUserPassword.kt[]
+----
+
+<1> To register a Singleton in Micronaut's application context, annotate your class with `javax.inject.Singleton`
+<2> A Micronaut's Authentication Provider implements the interface `io.micronaut.security.authentication.AuthenticationProvider`

@@ -1,0 +1,17 @@
+include::{commondir}/common-spek.adoc[]
+
+Create a test to verify a user is able to login and access a secured endpoint.
+
+[source,java]
+.src/test/kotlin/example/micronaut/JwtAuthenticationSpec.kt
+----
+include::{sourceDir}/src/test/kotlin/example/micronaut/JwtAuthenticationSpec.kt[]
+----
+
+<1> To run the application from a unit test you can use the http://docs.micronaut.io/api/io/micronaut/runtime/server/EmbeddedServer.html[EmbeddedServer] interface
+<2> Register a `RxClient` bean in the application context and point it to the embedded server URL. The `EmbeddedServer` interface provides the URL of the server under test which runs on a random port.
+<3> Once you turn on security, every endpoint is secured by default.
+<4> To login, do a POST request to `/login` with your credentials as a JSON payload in the body of the request.
+<5> Micronaut makes it easy to parse JSON into Java objects.
+<6> Micronaut supports https://tools.ietf.org/html/rfc6750[RFC 6750 Bearer Token] specification out-of-the-box. We supply the JWT token in the `Authorization` HTTP Header.
+<7> Use .body() to retrieve the parsed payload.
