@@ -2,7 +2,7 @@ If you want to access a secured endpoint, you can also use Micronaut's HTTP Clie
 
 First create a `@Client` with a method `home` which accepts an `Authorization` HTTP Header.
 
-[source,java]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/AppClient.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/AppClient.kt[]
@@ -10,7 +10,7 @@ include::{sourceDir}/src/test/kotlin/example/micronaut/AppClient.kt[]
 
 Create a test which uses the previous `@Client`
 
-[source,java]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/DeclarativeHttpClientWithJwtSpec.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/DeclarativeHttpClientWithJwtSpec.kt[]

@@ -1,6 +1,6 @@
 To keep this guide simple, create a naive `AuthenticationProvider` to simulate user's authentication.
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/services/AuthenticationProviderUserPassword.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/services/AuthenticationProviderUserPassword.kt[]

@@ -1,6 +1,6 @@
 Create a new test to verify that token refreshing works as expected.
 
-[source,java]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/OauthAccessTokenSpec.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/OauthAccessTokenSpec.kt[]

@@ -2,7 +2,7 @@ include::{commondir}/common-spek.adoc[]
 
 Create a test to verify a user is able to login and access a secured endpoint.
 
-[source,java]
+[source,kotlin]
 .src/test/kotlin/example/micronaut/JwtAuthenticationSpec.kt
 ----
 include::{sourceDir}/src/test/kotlin/example/micronaut/JwtAuthenticationSpec.kt[]

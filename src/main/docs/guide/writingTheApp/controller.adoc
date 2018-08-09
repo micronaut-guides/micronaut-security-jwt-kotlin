@@ -1,6 +1,6 @@
 Create a file named `HomeController` which resolves the base URL `/`:
 
-[source,java]
+[source,kotlin]
 .src/main/kotlin/example/micronaut/controllers/HomeController.kt
 ----
 include::{sourceDir}/src/main/kotlin/example/micronaut/controllers/HomeController.kt[]
