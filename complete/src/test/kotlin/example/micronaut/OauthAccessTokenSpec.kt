@@ -10,12 +10,10 @@ import io.micronaut.security.authentication.UsernamePasswordCredentials
 import io.micronaut.security.token.jwt.endpoints.TokenRefreshRequest
 import io.micronaut.security.token.jwt.render.AccessRefreshToken
 import io.micronaut.security.token.jwt.render.BearerAccessRefreshToken
-import org.jetbrains.spek.api.Spek
-import org.jetbrains.spek.api.dsl.describe
-import org.jetbrains.spek.api.dsl.on
+import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.specification.describe
 import java.lang.Thread.sleep
 import kotlin.test.assertEquals
-import kotlin.test.assertNotEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
@@ -25,7 +23,7 @@ class OauthAccessTokenSpec: Spek({
         var embeddedServer: EmbeddedServer = ApplicationContext.run(EmbeddedServer::class.java)
         var client: RxHttpClient = RxHttpClient.create(embeddedServer.url)
 
-        on("you can refresh JWT access token with /oauth/access_token endpoint") {
+        it("you can refresh JWT access token with /oauth/access_token endpoint") {
             val creds = UsernamePasswordCredentials("sherlock", "password")
             val request = HttpRequest.POST("/login", creds)
 

@@ -1,4 +1,4 @@
-include::{commondir}/common-spek.adoc[]
+include::{commondir}/common-spek2.adoc[]
 
 Create a test to verify a user is able to login and access a secured endpoint.
 

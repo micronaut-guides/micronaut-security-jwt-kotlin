@@ -9,9 +9,9 @@ import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.security.authentication.UsernamePasswordCredentials
 import io.micronaut.security.token.jwt.render.BearerAccessRefreshToken
-import org.jetbrains.spek.api.Spek
-import org.jetbrains.spek.api.dsl.describe
-import org.jetbrains.spek.api.dsl.on
+import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.specification.describe
+
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
@@ -24,7 +24,7 @@ class DeclarativeHttpClientWithJwtSpec: Spek({
         var client: RxHttpClient = RxHttpClient.create(embeddedServer.url) // <2>
 
         var appClient : AppClient? = null
-        on("AppClient Bean can be retrieved from Application context") {
+        it("AppClient Bean can be retrieved from Application context") {
             var exceptionThrown = false
             try {
                 appClient = embeddedServer.applicationContext.getBean(AppClient::class.java) // <3>
@@ -34,7 +34,7 @@ class DeclarativeHttpClientWithJwtSpec: Spek({
             }
             assertFalse(exceptionThrown)
         }
-        on("Accessing a secured URL without authenticating returns unauthorized") {
+        it("Accessing a secured URL without authenticating returns unauthorized") {
             var exceptionThrown = false
             try {
                 val request = HttpRequest.GET<Any>("/")
@@ -45,7 +45,7 @@ class DeclarativeHttpClientWithJwtSpec: Spek({
             assertTrue(exceptionThrown)
         }
         var accessToken: String? = null
-        on("User can login") {
+        it("User can login") {
             val creds = UsernamePasswordCredentials("sherlock", "password")
             val request = HttpRequest.POST("/login", creds) // <4>
 
@@ -57,7 +57,7 @@ class DeclarativeHttpClientWithJwtSpec: Spek({
 
             accessToken = rsp.body()!!.accessToken // <6>
         }
-        on("Access / endpoint with appClient") {
+        it("Access / endpoint with appClient") {
             var msg: String = appClient!!.home("Bearer ${accessToken!!}") // <7>
             assertTrue(msg == "sherlock")
         }

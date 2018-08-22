@@ -12,9 +12,8 @@ import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.security.authentication.UsernamePasswordCredentials
 import io.micronaut.security.token.jwt.render.BearerAccessRefreshToken
-import org.jetbrains.spek.api.Spek
-import org.jetbrains.spek.api.dsl.describe
-import org.jetbrains.spek.api.dsl.on
+import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.specification.describe
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
@@ -24,7 +23,7 @@ class BasicAuthSpec: Spek({
 
         var embeddedServer : EmbeddedServer = ApplicationContext.run(EmbeddedServer::class.java) // <1>
         var client : RxHttpClient = RxHttpClient.create(embeddedServer.url) // <2>
-        on("Accessing a secured URL without authenticating") {
+        it("Accessing a secured URL without authenticating") {
             var exceptionThrown = false
             try {
                 val request = HttpRequest.GET<Any>("/")
@@ -34,7 +33,7 @@ class BasicAuthSpec: Spek({
             }
             assertTrue(exceptionThrown)
         }
-        on("the endpoint can be access with JWT obtained when Login endpoint is called with valid credentials") {
+        it("the endpoint can be access with JWT obtained when Login endpoint is called with valid credentials") {
             val creds = UsernamePasswordCredentials("sherlock", "password")
             val request = HttpRequest.POST("/login", creds) // <4>
 
