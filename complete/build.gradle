@@ -34,18 +34,18 @@ repositories {
 
 dependencyManagement {
     imports {
-        mavenBom "io.micronaut:bom:$micronautVersion"
+        mavenBom "io.micronaut:micronaut-bom:$micronautVersion"
     }
 }
 
 dependencies {
-    compile "io.micronaut:http-client"
-    compile "io.micronaut:http-server-netty"
+    compile "io.micronaut:micronaut-http-client"
+    compile "io.micronaut:micronaut-http-server-netty"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    compile "io.micronaut:runtime"
-    kapt "io.micronaut:inject-java"
-    kaptTest "io.micronaut:inject-java"
+    compile "io.micronaut:micronaut-runtime"
+    kapt "io.micronaut:micronaut-inject-java"
+    kaptTest "io.micronaut:micronaut-inject-java"
     runtime "ch.qos.logback:logback-classic:1.2.3"
 
     //tag::spek[]
@@ -55,7 +55,7 @@ dependencies {
     //end::spek[]
 
     //tag::securitydependency[]
-    compile "io.micronaut:security-jwt"
+    compile "io.micronaut:micronaut-security-jwt"
     //end::securitydependency[]
 }
 
