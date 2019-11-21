@@ -1,6 +1,7 @@
 micronaut:
-    application:
-        name: complete
+  application:
+    name: complete
+---
 #tag::security[]
 micronaut:
   security:
