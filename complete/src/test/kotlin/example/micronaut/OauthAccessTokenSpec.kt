@@ -17,7 +17,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
-class OauthAccessTokenSpec: Spek({
+class OauthAccessTokenSpec : Spek({
     describe("Verify JWT access token refresh works") {
 
         var embeddedServer: EmbeddedServer = ApplicationContext.run(EmbeddedServer::class.java)
@@ -34,7 +34,7 @@ class OauthAccessTokenSpec: Spek({
 
             val refreshToken: String = rsp.body()!!.refreshToken
             val accessToken: String = rsp.body()!!.accessToken
-             sleep(1_000) // sleep for one second to give time for the issued at `iat` Claim to change
+            sleep(1_000) // sleep for one second to give time for the issued at `iat` Claim to change
             val refreshTokenRequest: HttpRequest<TokenRefreshRequest> = HttpRequest.POST("/oauth/access_token",
                     TokenRefreshRequest("refresh_token", refreshToken)) // <1>
             val response: HttpResponse<AccessRefreshToken> = client.toBlocking().exchange(refreshTokenRequest, AccessRefreshToken::class.java)
