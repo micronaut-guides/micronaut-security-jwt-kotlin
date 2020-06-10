@@ -28,8 +28,8 @@ dependencies {
     implementation "io.micronaut:micronaut-http-server-netty"
 
     //tag::securitydependency[]
-    annotationProcessor "io.micronaut:micronaut-security-annotations:2.0.0.M2"
-    implementation "io.micronaut:micronaut-security-jwt"
+    annotationProcessor "io.micronaut.security:micronaut-security-annotations"
+    implementation "io.micronaut.security:micronaut-security-jwt"
     //end::securitydependency[]
 
     kapt platform("io.micronaut:micronaut-bom:$micronautVersion")
